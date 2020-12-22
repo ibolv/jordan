@@ -10,9 +10,14 @@ input {
 		background-color: transparent;
 }
 
+th { 
+	height: 30px;
+  	background: #fff;
+}
+
   td {
 	height: 30px;
-  background: #fff;
+  	background: #fff;
 }
 
 button {

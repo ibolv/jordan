@@ -2,8 +2,14 @@ var matr = [[4, 1, 2, 1, 0],
             [6, 1, 1, 0, 1],
             [10, 1, -1, -2, 3]];
 
+var matrSimp = [[16, 2, -1, 0, -2, 1, 0],
+                [18, 3, 2, 1, -3, 0, 0],
+                [24, -1, 3, 0, 4, 0, 1],
+                [0, 2, 3, 0, -1, 0, 0]];
 
-function matrix(matr) {
+var simplex = true;
+
+function matrix(matr, simplex) {
     var table = document.createDocumentFragment();
     var arr = [];
     var sizeRow = 4;
@@ -33,8 +39,8 @@ function matrix(matr) {
                     var input = document.createElement('input');
                     input.value = matr[i-1][j-1];
                     td.appendChild(input);
-                } else {
-                     td.innerHTML = "0=";
+                } else { 
+                     if (i == (sizeRow - 1) && simplex == true) {td.innerHTML = "F=";} else {td.innerHTML = "0=";};
                 }
                 tr.appendChild(td);
             }
@@ -289,6 +295,6 @@ function aeInp() {
 
 
 window.onload = function () {
-    matrix(matr);
+    matrix(matr,simplex);
     createBut();
 }
