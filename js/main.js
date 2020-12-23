@@ -1,11 +1,15 @@
-var matr = [[4, 1, 2, 1, 0],
-            [6, 1, 1, 0, 1],
-            [10, 1, -1, -2, 3]];
+//var matr = [[4, 1, 2, 1, 0],
+ //           [6, 1, 1, 0, 1],
+ //           [10, 1, -1, -2, 3]];
 
-var matrSimp = [[16, 2, -1, 0, -2, 1, 0],
-                [18, 3, 2, 1, -3, 0, 0],
-                [24, -1, 3, 0, 4, 0, 1],
-                [0, 2, 3, 0, -1, 0, 0]];
+var matrSimp = [[1, 0, -1, 1, 1, 0],
+                [2, -5, 1, 1, 0, 0],
+                [3, -8, 1, 2, 0, -1],
+                [0, -3, 1, 4, 0, 0]];
+                var matr = [[1, 0, -1, 1, 1, 0],
+                [2, -5, 1, 1, 0, 0],
+                [3, -8, 1, 2, 0, -1],
+                [0, -3, 1, 4, 0, 0]];
 
 var simplex = true;
 
@@ -91,7 +95,7 @@ function getMatrix() {
             }
         }  
     }
-    arrNew.splice(3,3);
+      arrNew.splice(tr.length - 1,th.length - 1);
 
     console.log(arr);
     console.log(arrNew);
@@ -188,6 +192,16 @@ function createBut() {
     save.value = 'save';
     div.appendChild(save);
     save.addEventListener('click', function() {
+      // var select = document.getElementById('action');
+      //   if (select.selectedIndex == 1) {
+      //   simplex = false;
+      //   matrix(matr, simplex);
+      // }
+      //   if (select.selectedIndex == 2) {
+      //   console.log('ds');
+      //   simplex = true;
+      //   matrix(matr, simplex);
+      // }
         arr = getMatrix();
         return arr});
 
@@ -197,13 +211,18 @@ function createBut() {
 
 
 
-function dis(arr) {    
-        var ae = aeInp();
+function dis(arr) {
+  if (simplex == false) {
+    var ae = aeInp();
         arr.arrNew = methodJordan(ae.inputX, ae.inputY, arr.arrNew);
        // matrix(arr.arrNew);
         //invers(arr.arr, arr.arrNew, ae.inputX, ae.inputY);
         console.log(arr.arr);
         conversionStep(invers(arr.arr, arr.arrNew, ae.inputX, ae.inputY));
+  } else {
+    simplexMethod(arr);
+  } 
+        
 }
 
 function methodJordan(razrElemX, razrElemY, a) {
@@ -295,6 +314,7 @@ function aeInp() {
 
 
 window.onload = function () {
-    matrix(matr,simplex);
+    matrix(matrSimp,simplex);
     createBut();
+    
 }
