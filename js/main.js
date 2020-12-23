@@ -6,10 +6,11 @@ var matrSimp = [[1, 0, -1, 1, 1, 0],
                 [2, -5, 1, 1, 0, 0],
                 [3, -8, 1, 2, 0, -1],
                 [0, -3, 1, 4, 0, 0]];
-                var matr = [[1, 0, -1, 1, 1, 0],
-                [2, -5, 1, 1, 0, 0],
-                [3, -8, 1, 2, 0, -1],
-                [0, -3, 1, 4, 0, 0]];
+var matr = [[40, 1, 0, 1, 0, 0, 0],
+            [30, 0, 1, 0, 1, 0, 0],
+            [60, 1, 1, 0, 0, 1, 0],
+            [80, 1, 2, 0, 0, 0, 1],
+            [0, 2, 3, 0, 0, 0, 0]];
 
 var simplex = true;
 
@@ -145,17 +146,7 @@ function createBut() {
     var but = document.getElementById('but');
     var divMain = document.createDocumentFragment();
     var div = document.getElementById("buts-add");
-
-    var inputX = document.createElement('input');
-    inputX.type = 'text';
-    inputX.id = 'in'
-    inputX.classList = 'inputX';
-    but.appendChild(inputX);
-    var inputY = document.createElement('input');
-    inputY.type = 'text'
-    inputY.classList = 'inputY';
-    but.appendChild(inputY);
-
+  
     var arr = getMatrix();
     var butt = document.createElement("input");
     butt.type = "button";
@@ -187,25 +178,31 @@ function createBut() {
     div.appendChild(delRows);
     delRows.addEventListener('click', function() {delRow()});
 
+
     var save = document.createElement("input");
     save.type = "button";
     save.value = 'save';
     div.appendChild(save);
     save.addEventListener('click', function() {
-      // var select = document.getElementById('action');
-      //   if (select.selectedIndex == 1) {
-      //   simplex = false;
-      //   matrix(matr, simplex);
-      // }
-      //   if (select.selectedIndex == 2) {
-      //   console.log('ds');
-      //   simplex = true;
-      //   matrix(matr, simplex);
-      // }
-        arr = getMatrix();
-        return arr});
-
-
+      arr = getMatrix();
+      var select = document.getElementById('action');
+      if (select.selectedIndex == 1) {
+      simplex = false;
+      if (simplex == false) {  var inputX = document.createElement('input');
+      inputX.type = 'text';
+      inputX.id = 'in'
+      inputX.classList = 'inputX';
+      but.appendChild(inputX);
+      var inputY = document.createElement('input');
+       inputY.type = 'text'
+      inputY.classList = 'inputY';
+      but.appendChild(inputY);
+  }
+    }
+      if (select.selectedIndex == 2) {
+      simplex = true;
+    }
+      return arr});
 
 }
 
@@ -314,7 +311,7 @@ function aeInp() {
 
 
 window.onload = function () {
-    matrix(matrSimp,simplex);
+    matrix(matr,simplex);
     createBut();
     
 }

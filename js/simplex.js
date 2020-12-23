@@ -44,7 +44,7 @@ function getMinValue(arr){
 function isNegative(arr) {
     var n = 0;
         for (var j = 0; j < arr[0].length; j++) {
-            if (arr[arr.length - 1][j] > 0 && isBan(j, aeArrY) == 0) {
+            if (arr[arr.length - 1][j] < 0 && isBan(j, aeArrY) == 0) {
                 n++;
                 console.log(arr[arr.length - 1][j]);
             }
@@ -75,8 +75,8 @@ function simplexMethod(arr) {
             var div = document.getElementById('but');
             var span = document.createElement('span');
             div.appendChild(span);
-            span.innerHTML = '<br>' + 'Ответ:' + (-1) * newArr[newArr.length - 1][0];
-            console.log('Ответ', (-1) * newArr[newArr.length - 1][0]);
+            span.innerHTML = '<br>' + 'Ответ:' + newArr[newArr.length - 1][0];
+            console.log('Ответ', newArr[newArr.length - 1][0]);
             break;
         }
         getMin = getMinValue(newArr);

@@ -1,9 +1,10 @@
 table {
     border-collapse: collapse;
-    width: 300px;
+    width: 300px ;
   }
 
 input {
+		outline: none;
 		width : 50px;
 		border: 1px;
 		text-align: center;
@@ -12,30 +13,51 @@ input {
 
 th { 
 	height: 30px;
-  	background: #fff;
+	background: #fff;
 }
 
   td {
 	height: 30px;
-  	background: #fff;
+	background: #fff;
 }
 
 button {
+	outline: none;
 	float: left;
 	background: #fff;
-	border: 1px solid black ;
+	/* border: 1px solid black ; */
 	border-radius: 3px;
 }
+#but input{
+	background-color:rgb(164, 168, 165);
+	border-radius:5px;
+	margin-top: 10px;
+	border: 1px solid black;
+}
+.kek input{
+	background-color:rgb(197, 191, 191);
+	border-radius:5px;
+	border: 1px solid black;
+	width: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+input{
 
+	/* border: 1px solid black; */
+	width: 70px;
+}
 
 th, td {
   border: 1px solid black;
   padding: 4px;
   text-align: center;
 }
-
+/* #buts-add{
+	border: 1px solid black;
+} */
 #main {
-	border: 2px solid white; 
+	border: 1px solid black; 
 }
 
 .inputX {
@@ -48,4 +70,5 @@ th, td {
     border: 1px solid #000;
 	width: 5%;
 	height: 50%;
+	margin-right: 10px;
 }
