@@ -68,7 +68,6 @@ function isNegative(arr) {
         for (var j = 0; j < arr[0].length; j++) {
             if (arr[arr.length - 1][j] < 0 && isBan(j, aeArrY) == 0) {
                 n++;
-                console.log(arr[arr.length - 1][j]);
             }
         }
     return n
@@ -93,7 +92,7 @@ function simplexMethod(arr) {
              console.log('Последняя строка содержит отрицательные элементы. Пространство допустимых решений неограниченно. Решения не существует.');
              break;
          }
-         if (isNegative(newArr) == 0) {
+         if (isNegative(newArr) == 0 && aeArrX.length == newArr.length) {
              var div = document.getElementById('but');
              var span = document.createElement('span');
              div.appendChild(span);

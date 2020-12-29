@@ -7,10 +7,10 @@ var matrSimp = [[1, 0, -1, 1, 1, 0],
                 [3, -8, 1, 2, 0, -1],
                 [0, -3, 1, 4, 0, 0]];
 
-var matr = [[6, 1, 1, 1, 0, 0],
-            [3, 1, -2, 0, 1, 0],
-            [3, 1, 0, 0, 0, -1],
-            [0, -3, -2, 0, 0, 0]];
+var matr = [[4, -1, -1, 1, 1, 0],
+            [7, -1, 2, 1, 0, 1],
+            [7, 2, -1, 0, 1, 1],
+            [5, -3, 1, 0, 0, 0]];
 
 var simplex = true;
 
@@ -188,7 +188,8 @@ function createBut() {
       var select = document.getElementById('action');
       if (select.selectedIndex == 1) {
       simplex = false;
-      if (simplex == false) {  var inputX = document.createElement('input');
+      if (simplex == false) {  
+      var inputX = document.createElement('input');
       inputX.type = 'text';
       inputX.id = 'in'
       inputX.classList = 'inputX';
@@ -250,14 +251,14 @@ function getRandom(){
 
 // Удалить строку
 function delRow(){
-    var matr = document.getElementById('main');
-    var size = matr.getElementsByTagName('tr').length - 1;
-    var td = matr.getElementsByTagName('td');
-    var tr = matr.getElementsByTagName('tr');
-    console.log(tr.length * size);
-    //td[(tr.length - 1) * size - tr.length - 1].innerHTML += "F=sdfsdfsdfsfdf";
+    var table = document.getElementById('main');
+    var size = table.getElementsByTagName('tr').length - 1;
+    var td = table.getElementsByTagName('td');
+    var tr = table.getElementsByTagName('tr');
+    var len = table.querySelectorAll('th').length;
     if (size > 1) {
-      matr.deleteRow(size);
+      table.deleteRow(size);
+      td[td.length - len].innerHTML = "F=";
     }
   }
   
@@ -276,15 +277,18 @@ function delRow(){
   function addRow(){
     var table = document.getElementById('main');
     var tr = table.querySelectorAll('tr');
+    var sizeRow = table.getElementsByTagName('tr');
+    var td = table.getElementsByTagName('td');
     var len = table.querySelectorAll('th').length;
     var row = table.insertRow(tr.length);
     //var row1 = table.insertRow(tr.length - 1);
     //row1.insertCell(0).innerHTML = "0=";
+    td[td.length - len].innerHTML = "0=";
     for (var i = 0; i < len; i++) {
       var cell = row.insertCell(i);
       if (i == 0) { 
           cell.id = "Y";
-          cell.innerHTML = "0=";
+          cell.innerHTML = "F=";
       }else
           getInput(cell);
     }
